@@ -4,10 +4,23 @@ const path = require("path");
 const cors = require("cors");
 // const MongoClient = require('mongodb').MongoClient;
 
+
+require('dotenv').config()
 // Connect to database
 // MongoClient
+
+// set Environment
+let mongoUrl = "";
+if (process.env.STAGE === "development") {
+  mongoUrl = process.env.MONGO_URL_DEV;
+} else if (process.env.STAGE === "production") {
+  mongoUrl = process.env.MONGO_URL_PRODUCTION;
+  
+}
+
 mongoose
-  .connect("mongodb://localhost:27017/news", { useNewUrlParser: true})
+  // .connect("mongodb://localhost:27017/news", { useNewUrlParser: true})
+  .connect(mongoUrl, { useNewUrlParser: true })
   .then(() => console.log("Connected to database"))
   .catch(err => console.log(err));
 

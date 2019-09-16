@@ -116,7 +116,7 @@ router.get("/posts/category", (req, res) => {
 router.get("/posts/trending", (req, res) => {
   let limit = req.query.limit;
   Post.find({ trending: true })
-    .sort({ createdOn: -1 })
+    .sort({ createdOn: 1 })
     .limit(Number(limit))
     .then(post => res.status(200).json(post))
     .catch(err => res.status(400).json(err));

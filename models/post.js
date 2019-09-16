@@ -15,7 +15,7 @@ const PostSchema = new mongoose.Schema({
   trending: { type: Boolean, required: true },
   mainContent: { type: String }
 });
-PostSchema.index({title: 1, mainContent: 1}, {unique: true});
+// PostSchema.index({title: 1, mainContent: 1}, {unique: true});
 const Post = mongoose.model("Post", PostSchema);
 module.exports = {
   Post,
