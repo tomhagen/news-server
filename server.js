@@ -44,7 +44,7 @@ app.use(function(req, res, next) {
 app.use("/api", require("./routes/api/post"));
 app.use("/api/users", require("./routes/api/users"));
 
-app.use("/", express.static(path.join(__dirname, "public")));
+app.use("/", express.static("public"));
 // app.use("/", express.static("public"));
 // app.use("/", (req, res) => {
 //   res.render("../news-client/public/index");
